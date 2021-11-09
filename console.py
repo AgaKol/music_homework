@@ -11,4 +11,10 @@ import repositories.artist_repository as artist_repository
 
 # artist_repository.delete_all()
 
+# specific = artist_repository.select_one(4)
+# print (specific.__dict__)
+
+# for artist in artist_repository.select_all():
+#     print (artist.__dict__)
+
 pdb.set_trace()

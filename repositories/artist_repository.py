@@ -21,3 +21,12 @@ def select_one(id):
     if result is not None:
         artist = Artist(result['name'], result['id'])
     return artist
+
+def select_all():
+    artists = []
+    sql = "SELECT * FROM artists"
+    result = run_sql(sql)
+    for row in result:
+        artist = Artist(row['name'], row['id'])
+        artists.append(artist)
+    return artists
