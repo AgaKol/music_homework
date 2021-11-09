@@ -14,6 +14,7 @@ import repositories.album_repository as album_repository
 # artist_repository.save(artist2)
 
 # artist_repository.delete_all()
+# album_repository.delete_all()
 
 # specific = artist_repository.select_one(4)
 # print (specific.__dict__)
