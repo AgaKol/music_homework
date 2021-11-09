@@ -1,5 +1,6 @@
 from db.run_sql import run_sql
 from models.artist import Artist
+from models.album import Album
 
 def save(artist):
     sql = "INSERT INTO artists (name) VALUES (%s) RETURNING *"
@@ -40,3 +41,13 @@ def delete_one(id):
     sql = "DELETE FROM artists WHERE id = %s"
     values = [id]
     run_sql(sql, values)
+
+def albums(artist):
+    albums =[]
+    sql = "SELECT * FROM albums WHERE artist_id = %s"
+    values = [artist.id]
+    result = run_sql(sql, values)
+    for row in result:
+        album = Album(row['title'], row['genre'], artist, row ['id'])
+        albums.append(album)
+    return albums
